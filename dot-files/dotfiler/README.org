@@ -1,0 +1,119 @@
+* Dotfiler
+
+Dotfiler is a script that helps you maintain (chosen) dot-files as
+symlinks to another directory. This can make backup and version
+control of the dot-files you consider important easier.
+
+** Understanding Dotfiler
+
+Dotfiler helps you manage dot-files according to the following
+convention:
+
+- Managed dot-files (normal files or directories) are symlinks to
+  target files in a designated dot-files directory.
+  - The target files lack the leading dot of the dot-file they
+    represent, but otherwise have the same name.
+
+    For example, if your dot-files directory is =~/dotdir= and we want to
+    manage =.emacs.d=, and =~/.profile=, we would have the following files
+    (-> indicates symlink):
+
+#+BEGIN_EXAMPLE
+# Normal files
+~/dotdir/emacs.d
+~/dotdir/profile
+
+# Symlinked dot-files
+~/.emacs.d  -> ~/dotdir/emacs.d
+~/.profile  -> ~/dotdir/profile
+
+# Unmanaged files remain untouched in ~, for example:
+~/.vimrc
+~/.ssh
+#+END_EXAMPLE
+
+** Installation
+
+Recommended way assumes Git versioning of the dot-files directory:
+
+: # Replace '~/dotfiles' with the your preferred dot-files directory
+: mkdir ~/dotfiles
+: cd ~/dotfiles
+: git init
+: git submodule add git://github.com/cbaatz/dotfiler.git
+: ln -s dotfiler/dotfiler . # Optional but recommended
+
+By default, Dotfiler uses the parent directory of its install
+directory as the dot-files directory. For example, if you installed
+Dotfiler in =~/mydotfiles/dotfiler=, the dot-files directory would be
+=~/mydotfiles=. You can set the dot-files directory explicitly with
+the =DOTFILES_DIR= environment variable.
+
+Alternatively, if you're not using Git for your dot-files directory,
+or you prefer to install Dotfiler somewhere else, you can clone the
+repo and set the =DOTFILES_DIR= environment variable:
+
+: # Replace '/opt/local/manual' with your preferred path
+: cd /opt/local/manual
+: git clone git://github.com/cbaatz/dotfiler.git
+: # Add the dotfiler script to your PATH and set the DOTFILES_DIR to
+: # your preferred dot-files directory:
+: echo "PATH=$PATH:/opt/local/manual/dotfiler" >> ~/.profile
+: echo "DOTFILES_DIR=~/mydotfiles"
+
+** Usage
+
+: dotfiler status
+
+Show dot-files management status (dot-files directory and status for
+each file).
+
+: dotfiler add DOT_FILES
+: # Example: dotfiler add ~/.emacs ~/.vimrc
+
+Manages dot-files by moving each file to your dot-files directory
+(removing the leading dot) and creating a symlink from your home-dir.
+
+: dotfiler restore DOT_FILES
+: # Example: dotfiler restore ~/.emacs ~/.vimrc
+: #          dotfiler restore ~/* # Unmanage all
+
+Unmanages dot-files by moving each file back to your home-dir (removing
+the symlink). Ignores files that are not managed.
+
+: dotfiler update [<options>]
+: # Example: git checkout HEAD^
+: #          dotfiler update
+
+Updates symlinks in home-dir to point to the files in the dot-files
+directory.
+
+Options:
+
+=--overwrite= Overwrite normal files in home-dir with symlinks to
+              files in dot-files directory. DANGEROUS.
+
+              ** Alternative management approach
+              If you'd like to avoid symlinks, you can make your home directory a
+              git repo, exclude all files by default (=echo '*' >
+              ~/.git/info/exclude=) and add exceptions for each file you want to
+              manage (=echo '!.emacs.d/' >> ~/.git/info/exclude=). See
+              [[http://www.kernel.org/pub/software/scm/git/docs/gitignore.html]] for
+              details.
+
+              I find managing dot-files in a separate directory neater and it fits
+              my back-up scheme better.
+              ** Abandoned ideas
+              *** Files inside dot-directories
+              Dotfiler was meant to support symlinking individual files in
+              dot-directories. However, this was dropped since it complicates things
+              more than the value justifies; it should be straightforward (if
+              tedious) to manually replicate Dotfiler's functionality.
+
+              Managing specific files/directories inside a dot-directory requires a
+              list of managed files to recover to a clean home-dir -- which dir in a
+              path is actually managed?
+
+              Use =.gitignore= or similar in your dot-files directory to exclude
+              specific files/directories inside dot-directories from version
+              control. (Remember you can use negated patterns.)
