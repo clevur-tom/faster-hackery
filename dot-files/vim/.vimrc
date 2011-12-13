@@ -59,7 +59,7 @@ syntax enable
 set grepprg=grep\ -nH\ $*
 
 " Who doesn't like autoindent?
-set autoindent
+"set autoindent
 
 " PHP syntax check
 set makeprg=php\ -l\ %
@@ -68,8 +68,8 @@ set errorformat=%m\ in\ %f\ on\ line\ %l
 " Spaces are better than a tab character
 set expandtab
 set tabstop=4
-set smarttab
-set smartindent
+"set smarttab
+"set smartindent
 set shiftwidth=4
 
 " Use english for spellchecking, but don't spellcheck by default
