@@ -28,7 +28,7 @@ do
             ln -s $p/dircolors $HOME/.dircolors;
 
             #vim
-			rm ~/.vim -R
+			rm ~/.vim -R;
 			ln -s $p/vim $HOME/.vim;
 			ln -s $p/vim/vimrc $HOME/.vimrc;
 
