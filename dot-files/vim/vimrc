@@ -1,3 +1,6 @@
+" Necesary for lots of cool vim things
+set nocompatible
+ 
 " 256 colors
 set t_Co=256
 
@@ -8,17 +11,17 @@ set background=dark
 colorscheme solarized
 
 " enable mouse
-:set mouse=a
+set mouse=a
 
 " highlight trailing whitespace
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+\%#\@<!$/
-:au InsertEnter * match ExtraWhiteSpace /\s\+\%#\@<!$/
-:au InsertLeave * match ExtraWhiteSpace /\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertEnter * match ExtraWhiteSpace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
       
 " highlight do not commit mark
-:highlight DoNotCommit ctermbg=red guibg=red
-:match DoNotCommit /DONOTCOMMIT/
+highlight DoNotCommit ctermbg=red guibg=red
+match DoNotCommit /DONOTCOMMIT/
 
 " Restore your cursor position in a file over several editing sessions.
 set viminfo='10,\"100,:20,%,n~/.viminfo
@@ -46,14 +49,11 @@ au CursorMoved <buffer> exe 'match flicker /\V\<'.escape(expand('<cword>'), '/')
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" Necesary for lots of cool vim things
-set nocompatible
-
 " This shows what you are typing as a command.  I love this!
 set showcmd
 
 " Folding Stuffs
-set foldmethod=marker
+"set foldmethod=marker
 
 " Needed for Syntax Highlighting and stuff
 filetype on
@@ -62,7 +62,7 @@ syntax enable
 set grepprg=grep\ -nH\ $*
 
 " Who doesn't like autoindent?
-"set autoindent
+set autoindent
 
 " PHP syntax check
 set makeprg=php\ -l\ %
@@ -71,9 +71,14 @@ set errorformat=%m\ in\ %f\ on\ line\ %l
 " Spaces are better than a tab character
 set expandtab
 set tabstop=4
-"set smarttab
-"set smartindent
+set softtabstop=4
+set smarttab
 set shiftwidth=4
+
+" I love you and hate you AI.
+set pastetoggle=<F6>
+nnoremap <F6> :set invpaste paste?<CR>
+set showmode
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
