@@ -9,14 +9,15 @@
 
 p="$HOME/faster-hackery/dot-files";
 
-while :
+while true :
 do
 
 	echo "1. Ubuntu ADD link from ~ to dot-files"
 	echo "2. Ubuntu REMOVE link from dot-files to ~"
 	echo "3. Mac ADD link ~ to dot-files"
 	echo "4. Mac REMOVE link from dot-files to ~"
-	echo "5. Exit"
+    echo "5. Update faster-hackery & submodules"
+    echo "6. Exit"
 	echo -ne "> "
 	read opt
 	case $opt in
@@ -40,7 +41,8 @@ do
             ln -s $p/screenrc $HOME/.screenrc;
 
 			echo "Done.";
-			exit 1;;
+   			#exit 1
+            ;;
 
         2)  #Ubuntu REMOVE link
 
@@ -61,7 +63,8 @@ do
             rm $HOME/.screenrc;
 
             echo "Done.";
-            exit 1;;
+            #exit 1
+            ;;
 
         3)  #Mac ADD link
 
@@ -82,7 +85,8 @@ do
             ln -s $p/screenrc $HOME/.screenrc;
 
             echo "Done.";
-            exit 1;;
+            #exit 1
+            ;;
 
         4)  #Mac REMOVE link
 
@@ -103,9 +107,19 @@ do
             rm $HOME/.screenrc;
 
             echo "Done.";
-            exit 1;;
+            #exit 1
+            ;;
 
-		5)	echo "Exiting...";
+        5)  #Update faster-hackery & submodules
+            
+            cd ~/faster-hackery
+
+            git submodule update --init;
+
+            echo "Done.";
+            ;;
+
+		6)	echo "Exiting...";
 			exit 1;;
 
 		*)	echo "$opt is an invalid option.";
