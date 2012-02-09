@@ -18,3 +18,9 @@
 	bra = branch -a
 [github]
 	user = clevur-tom
+[difftool "sourcetree"]
+	cmd = /Applications/Work/SourceTree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Work/SourceTree.app/Contents/Resources/araxisgitmerge-w.sh \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\"
+	trustExitCode = true
