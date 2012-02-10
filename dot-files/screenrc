@@ -1,10 +1,31 @@
 startup_message 	off
 vbell			off
-hardstatus		alwayslastline                                                                                                                          
+#hardstatus		alwayslastline                                                                                                                          
 #hardstatus 		alwayslastline "%0=%{kB}| %{kw}%h %{kB}|%=%{kR}Load: %l%100="
 #hardstatus 		string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
 termcapinfo		xterm* OL=10000
 termcapinfo		xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-hardstatus 		string "%0=%{+b rk}%H %{bk}| %0L=%{mk}%>%-Lw%{= BW}%n%f* %t%{-}%+Lw%L>%?(%u)%? %{bk}|%>%=%{Yk} %=%C%a %1`%% %m.%d.%Y %{bk}%100="
+
+term screen-256color
+defscrollback 5000
+
+autodetach on
+
+#caption always "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
+hardstatus on
+hardstatus alwayslastline
+#caption always "%{=b G}%d.%m.%y%{=b G}%C:%s %{=b G}[%{= G}${USER}@%{= G}%H%{=b G}] %{=b d2}%l %{=b dy}%u %{=b dy} %={ %?%{= dc}%-Lw%?%{+b dy}(%{-b r}%n:%t%{+b dy})%?(%u)%?%{-dc}%?%{= dc}%+Lw%? %{=b dy}}"
+#hardstatus alwayslastline "%0=%{kB}| %{kw}%h %{kB}|%=%{kR}Load: %l%100="
+hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+#caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %c"
+
+
+
+#caption always "[%{r}Load: %{y}%l%{wk}] [%{g}%C%a %{bk}%d.%m.%Y%{wk}]"
+
+#hardstatus off
+#hardstatus alwayslastline '%{=kw}%?%-Lw%?%{r} (%{y}%n%{W}*%f%t%?(%u)%?%{r}) %{g}%?%+Lw%?%?%= %{g}'
+
+#hardstatus 		string "%0=%{+b rk}%H %{bk}| %0L=%{mk}%>%-Lw%{= BW}%n%f* %t%{-}%+Lw%L>%?(%u)%? %{bk}|%>%=%{Yk} %=%C%a %1`%% %m.%d.%Y %{bk}%100="
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 bind H screen -t htop		1	htop
