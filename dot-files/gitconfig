@@ -9,6 +9,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
+    whitespace = cr-at-eol
 [alias]
 	st = status
 	co = checkout
