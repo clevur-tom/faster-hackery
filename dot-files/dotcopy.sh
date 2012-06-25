@@ -21,7 +21,8 @@ do
 	echo -ne "> "
 	read opt
 	case $opt in
-		1)	#Ubuntu ADD link
+
+      1)	#Ubuntu ADD link
 
             echo "Linking...";
 
@@ -29,9 +30,9 @@ do
             ln -s $p/dircolors $HOME/.dircolors;
 
             #vim
-			rm ~/.vim -R;
-			ln -s $p/vim $HOME/.vim;
-			ln -s $p/vim/vimrc $HOME/.vimrc;
+            rm ~/.vim -R;
+            ln -s $p/vim $HOME/.vim;
+            ln -s $p/vim/vimrc $HOME/.vimrc;
 
             #git
             ln -s $p/gitconfig $HOME/.gitconfig;
@@ -40,11 +41,11 @@ do
             #screen
             ln -s $p/screenrc $HOME/.screenrc;
 
-			echo "Done.";
-   			#exit 1
+            echo "Done.";
+            #exit 1
             ;;
 
-        2)  #Ubuntu REMOVE link
+      2)  #Ubuntu REMOVE link
 
             echo "Un-Linking...";
 
@@ -66,7 +67,7 @@ do
             #exit 1
             ;;
 
-        3)  #Mac ADD link
+      3)  #Mac ADD link
 
             echo "Linking...";
 
@@ -74,8 +75,8 @@ do
             ln -s $p/bash_profile $HOME/.bash_profile;
 
             #vim
-			ln -s $p/vim $HOME/.vim;
-			ln -s $p/vim/vimrc $HOME/.vimrc;
+            ln -s $p/vim $HOME/.vim;
+            ln -s $p/vim/vimrc $HOME/.vimrc;
 
             #git
             ln -s $p/gitconfig $HOME/.gitconfig;
@@ -88,7 +89,7 @@ do
             #exit 1
             ;;
 
-        4)  #Mac REMOVE link
+      4)  #Mac REMOVE link
 
             echo "Un-Linking...";
 
@@ -96,7 +97,7 @@ do
             rm $HOME/.bash_profile;
 
             #vim
-            rm $HOME/.vim;
+            rm -R $HOME/.vim;
             rm $HOME/.vimrc;
 
             #git
@@ -119,12 +120,12 @@ do
             echo "Done.";
             ;;
 
-		6)	echo "Exiting...";
-			exit 1;;
+        6)	echo "Exiting...";
+            exit 1;;
 
-		*)	echo "$opt is an invalid option.";
-			echo "Press [enter] key to continue...";
-			read enterKey;;
+        *)	echo "$opt is an invalid option.";
+            echo "Press [enter] key to continue...";
+            read enterKey;;
 
 	esac
 done

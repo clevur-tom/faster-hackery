@@ -4,12 +4,7 @@ runtime! autoload/pathogen.vim
 silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
 
-"set nocp
-"call pathogen#infect('~/.vim/bundle')
 syntax on
-"filetype plugin indent on
-"call pathogen#infect('~/.vim/bundle')
-
 set mouse=a
 
 " Restore your cursor position in a file over several editing sessions.
@@ -20,6 +15,7 @@ au BufEnter COMMIT_EDITMSG :normal 1G
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
 retab
 set autoindent
 set smartindent
