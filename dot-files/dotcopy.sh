@@ -16,13 +16,13 @@ do
 	echo "2. Ubuntu REMOVE link from dot-files to ~"
 	echo "3. Mac ADD link ~ to dot-files"
 	echo "4. Mac REMOVE link from dot-files to ~"
-    echo "5. Update faster-hackery & submodules"
-    echo "6. Exit"
+	echo "5. Update faster-hackery & submodules"
+	echo "6. Exit"
 	echo -ne "> "
 	read opt
 	case $opt in
 
-      1)	#Ubuntu ADD link
+	1)  #Ubuntu ADD link
 
             echo "Linking...";
 
@@ -45,7 +45,7 @@ do
             #exit 1
             ;;
 
-      2)  #Ubuntu REMOVE link
+	2)  #Ubuntu REMOVE link
 
             echo "Un-Linking...";
 
@@ -67,7 +67,7 @@ do
             #exit 1
             ;;
 
-      3)  #Mac ADD link
+	3)  #Mac ADD link
 
             echo "Linking...";
 
@@ -89,7 +89,7 @@ do
             #exit 1
             ;;
 
-      4)  #Mac REMOVE link
+	4)  #Mac REMOVE link
 
             echo "Un-Linking...";
 
@@ -120,10 +120,10 @@ do
             echo "Done.";
             ;;
 
-        6)	echo "Exiting...";
+        6)  echo "Exiting...";
             exit 1;;
 
-        *)	echo "$opt is an invalid option.";
+        *)  echo "$opt is an invalid option.";
             echo "Press [enter] key to continue...";
             read enterKey;;
 
