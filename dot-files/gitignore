@@ -1,6 +1,10 @@
 /config.php
 /lib/editor/tinymce/extra/tools/temp/
 *~
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
 .*.swp
 /tags
 /TAGS
@@ -10,6 +14,7 @@
 /nbproject/
 CVS
 .DS_Store
+Desktop.ini
 /.settings/
 /.project
 /.buildpath

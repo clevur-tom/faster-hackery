@@ -71,6 +71,21 @@ do
 
             echo "Linking...";
 
+            #aliases
+            ln -s $p/aliases $HOME/.aliases;
+            
+            #exports
+            ln -s $p/exports $HOME/.exports;
+
+            #inputrc
+            ln -s $p/inputrc $HOME/.inputrc;
+
+            #functions
+            ln -s $p/functions $HOME/.functions;
+
+            #mac bash_prompt
+            ln -s $p/bash_prompt $HOME/.bash_prompt;
+
             #mac bash_profile
             ln -s $p/bash_profile $HOME/.bash_profile;
 
@@ -85,6 +100,9 @@ do
             #screen
             ln -s $p/screenrc $HOME/.screenrc;
 
+            #wgetrc
+            ln -s $p/wgetrc $HOME/.wgetrc;
+
             echo "Done.";
             #exit 1
             ;;
@@ -92,6 +110,21 @@ do
 	4)  #Mac REMOVE link
 
             echo "Un-Linking...";
+
+            #aliases
+            rm $HOME/.aliases;
+
+            #exports
+            rm $HOME/.exports;
+
+            #inputrc
+            rm $HOME/.inputrc;
+
+            #functions
+            rm $HOME/.functions;
+
+            #mac bash_prompt;
+            rm $HOME/.bash_prompt;
 
             #mac bash_profile
             rm $HOME/.bash_profile;
@@ -106,6 +139,9 @@ do
 
             #screen
             rm $HOME/.screenrc;
+
+            #wgetrc
+            rm $HOME/.wgetrc;
 
             echo "Done.";
             #exit 1
