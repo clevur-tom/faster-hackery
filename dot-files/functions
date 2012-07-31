@@ -3,13 +3,17 @@ function md() {
     mkdir -p "$@" && cd "$@"
 }
 
+function lpcom() {
+    diff -arq /Users/spankk/Github/learningportal/$1/ /Users/spankk/Github/lp2.2.50portal/$1/ | grep Only
+}
+
 # Use Git’s colored diff when available
-hash git &>/dev/null
-if [ $? -eq 0 ]; then
-    function diff() {
-        git diff --no-index --color-words "$@"
-    }
-fi
+#hash git &>/dev/null
+#if [ $? -eq 0 ]; then
+#    function diff() {
+#        git diff --no-index --color-words "$@"
+#    }
+#fi
 
 # Create a data URL from an image (works for other file types too, if you tweak the Content-Type afterwards)
 dataurl() {
