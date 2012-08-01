@@ -4,6 +4,10 @@
 # General UI/UX                                                               #
 ###############################################################################
 
+# Always open everything in Finder's list view. This is important.
+#defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+defaults write com.apple.Finder FXPreferredViewStyle clmv
+
 # Set computer name (as done via System Preferences → Sharing)
 scutil --set ComputerName "mini"
 scutil --set HostName "mini"
@@ -13,11 +17,11 @@ scutil --set LocalHostName "mini"
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # Menu bar: show remaining battery time (on pre-10.8); hide percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "NO"
-defaults write com.apple.menuextra.battery ShowTime -string "YES"
+#defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+#defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Menu bar: hide the useless Time Machine and Volume icons
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+#defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -60,20 +64,20 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 ###############################################################################
 
 # Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+#defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+#defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Trackpad: swipe between pages with three fingers
-defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
+#defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
@@ -94,10 +98,11 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
+#defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
+defaults write NSGlobalDomain AppleLanguages -array "en"
+defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=USD"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
+defaults write NSGlobalDomain AppleMetricUnits -bool false
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -130,7 +135,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+#defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
@@ -196,10 +201,10 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+#defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+#defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
@@ -217,7 +222,7 @@ unset file
 defaults write com.apple.dock mouse-over-hilte-stack -bool true
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+#defaults write com.apple.dock tilesize -int 36
 
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -226,7 +231,7 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Don’t animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool false
+#defaults write com.apple.dock launchanim -bool false
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
@@ -235,12 +240,12 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.dock "expose-group-by-app" -bool true
 
 # Don’t show Dashboard as a Space
-defaults write com.apple.dock "dashboard-in-overlay" -bool true
+#defaults write com.apple.dock "dashboard-in-overlay" -bool true
 
 # Remove the auto-hiding Dock delay
-defaults write com.apple.Dock autohide-delay -float 0
+#defaults write com.apple.Dock autohide-delay -float 0
 # Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
+#defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Enable the 2D Dock
 #defaults write com.apple.dock no-glass -bool true
@@ -252,7 +257,7 @@ defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock itunes-notifications -bool true
 
 # Reset Launchpad
-find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
+#find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
 # Add a spacer to the left side of the Dock (where the applications are)
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
@@ -261,8 +266,8 @@ find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
 # Hot corners
 # Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0
+#defaults write com.apple.dock wvous-tl-corner -int 2
+#defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Desktop
 defaults write com.apple.dock wvous-tr-corner -int 4
 defaults write com.apple.dock wvous-tr-modifier -int 0
@@ -275,7 +280,7 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 ###############################################################################
 
 # Allow hitting the Backspace key to go to the previous page in history
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+#defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
 # Hide Safari’s bookmarks bar by default
 defaults write com.apple.Safari ShowFavoritesBar -bool false
@@ -308,16 +313,16 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 defaults write com.apple.addressbook ABShowDebugMenu -bool true
 
 # Enable Dashboard dev mode (allows keeping widgets on the desktop)
-defaults write com.apple.dashboard devmode -bool true
+#defaults write com.apple.dashboard devmode -bool true
 
 # Enable the debug menu in iCal
 defaults write com.apple.iCal IncludeDebugMenu -bool true
 
 # Make the iTunes arrow links go to your library instead of the iTunes Store
-defaults write com.apple.iTunes invertStoreLinks -bool true
+#defaults write com.apple.iTunes invertStoreLinks -bool true
 
 # Disable the iTunes arrow links completely
-defaults write com.apple.iTunes show-store-arrow-links -bool false
+#defaults write com.apple.iTunes show-store-arrow-links -bool false
 
 # Disable the Ping sidebar in iTunes
 defaults write com.apple.iTunes disablePingSidebar -bool true
@@ -326,7 +331,7 @@ defaults write com.apple.iTunes disablePingSidebar -bool true
 defaults write com.apple.iTunes disablePing -bool true
 
 # Make ⌘ + F focus the search input in iTunes
-defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+#defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 
 # Disable send and reply animations in Mail.app
 defaults write com.apple.Mail DisableReplyAnimations -bool true
@@ -346,10 +351,10 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Pro theme by default in Terminal.app
-open "$HOME/init/Mathias.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
-defaults write com.apple.Terminal "Default Window Settings" -string "Mathias"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Mathias"
+#open "$HOME/init/Mathias.terminal"
+#sleep 1 # Wait a bit to make sure the theme is loaded
+#defaults write com.apple.Terminal "Default Window Settings" -string "Mathias"
+#defaults write com.apple.Terminal "Startup Window Settings" -string "Mathias"
 
 # Enable “focus follows mouse” for Terminal.app and all X11 apps
 # This means you can hover over a window and start typing in it without clicking first
@@ -361,10 +366,10 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "Mathias"
 ###############################################################################
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+#defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+#hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Twitter.app                                                                 #

@@ -4,7 +4,7 @@ function md() {
 }
 
 function lpcom() {
-    diff -arq /Users/spankk/Github/learningportal/$1/ /Users/spankk/Github/lp2.2.50portal/$1/ | grep Only
+    diff -arq /Users/spankk/Repositories/learningportal/$1/ /Users/spankk/Repositories/mdle2integrate/$1/ | grep Only
 }
 
 # Use Git’s colored diff when available

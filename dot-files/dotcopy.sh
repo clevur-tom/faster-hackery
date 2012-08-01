@@ -7,7 +7,7 @@
 # that's what I use :)
 #
 
-p="$HOME/faster-hackery/dot-files";
+p="$HOME/Repositories/faster-hackery/dot-files";
 
 while true :
 do
